@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=PacMan
+Comment=Web-based package manager
+TryExec=/opt/pacman/start.sh
+Exec=/opt/pacman/start.sh
+Icon=/opt/pacman/res/img/icon.svg
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;
+NotShowIn=KDE;
+Keywords=Package;Manager;Pac;Man;Activity;
+StartupWMClass=PacMan
