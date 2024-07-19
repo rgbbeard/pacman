@@ -1,19 +1,21 @@
-. ./config.sh
-. ./shutdown.sh
+base="$(dirname $(readlink -f $0))"
+
+. "$base/config.sh"
+. "$base/shutdown.sh"
 
 appstart() {
-  xdg-open "http://192.168.1.100/"
   docker_compose
+  xdg-open "http://192.168.1.100/"
 }
 
 docker_compose() {
-  docker compose -f $configfile up
+  docker compose -f $configfile up -d
 }
 
 id=$(docker ps -aq -f name=$appname)
 
 if [ "$2" = "--build" ]; then
-  docker compose -f $configfile build
+  docker compose -f $configfile build -d
 fi
 
 if [ -z "$id" ]; then
