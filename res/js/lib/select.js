@@ -44,15 +44,19 @@ export class Select {
 
 		if(element) {
 			if(element instanceof HTMLElement) {
-				if(!this.multiple) {
-					if(this.node.children.hasElement(element)) {
-						s = new Select(this.node.children[this.node.children.indexOf(element)]);
-					}
-				} else {
-					if(this.current.children.hasElement(element)) {
-						s = new Select(this.current.children[this.current.children.indexOf(element)]);
-					}
-				}
+				if (!this.multiple) {
+	                const child = Array.from(this.node.children).find(child => child === element);
+	                if (child) {
+	                    s = new Select(child);
+	                }
+	            } else {
+	                const child = Array.from(this.current.children).find(child => child === element);
+	                if (child) {
+	                    s = new Select(child);
+	                }
+	            }
+			} else if(element instanceof NodeList || element instanceof SVGElement) {
+				s = new Select(element);
 			} else if((typeof element) === "string") {
 				const selection = this.multiple ? 
 						this.current?.querySelectorAll(element)
@@ -286,6 +290,30 @@ export class Select {
 		}
 
 		return this;
+	}
+
+	trigger(listener_name) {
+	    if (this.multiple) {
+	        for (let x = 0; x < this.nodelist.length; x++) {
+	            const n = this.nodelist[x];
+	            if (Hasher.hasHashFunction(n, listener_name)) {
+	                const event = new Event(listener_name, {
+	                    bubbles: true,
+	                    cancelable: true,
+	                });
+	                n.dispatchEvent(event);
+	            }
+	        }
+	    } else {
+	        if (Hasher.hasHashFunction(this.node, listener_name)) {
+	            const event = new Event(listener_name, {
+	                bubbles: true,
+	                cancelable: true,
+	            });
+	            this.node?.dispatchEvent(event);
+	        }
+	    }
+	    return this;
 	}
 
 	appendChild(child) {

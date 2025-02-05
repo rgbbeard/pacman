@@ -1,0 +1,13 @@
+@import "./old-school.buttons.css";
+@import "./toast.css";
+@import "./old-school.toast.css";
+
+* {
+	box-sizing: border-box;
+}
+
+*[hidden],
+.hidden {
+	display: none;
+	opacity: 0;
+}

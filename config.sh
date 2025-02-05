@@ -1,3 +1,3 @@
-base="$(dirname $(readlink -f $0))"
-configfile="$base/compose.yaml"
-imagename=pacman
+hostname="pacman.local"
+port=80
+ipaddr=127.0.10.1

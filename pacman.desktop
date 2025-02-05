@@ -10,5 +10,5 @@ Type=Application
 StartupNotify=true
 Categories=GNOME;GTK;
 NotShowIn=KDE;
-Keywords=Package;Manager;Pac;Man;Activity;
+Keywords=Package;Manager;Pac;Man;Activity;Program;Programs;Installed;Updates;Update
 StartupWMClass=PacMan

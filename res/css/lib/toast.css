@@ -1,0 +1,57 @@
+.toast {
+        width: 20%;
+        height: 10%;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        border-radius: 6px;
+        padding: 10px;
+        position: fixed;
+        z-index: 9999999999999;
+}
+
+.toast.left {
+        left: 15px;
+}
+
+.toast.top {
+        top: 15px;
+}
+
+.toast.bot {
+        bottom: 15px;
+}
+
+.toast.right {
+        right: 15px;
+}
+
+.toast.bot.center,
+.toast.top.center {
+        left: 40%;
+        right: 40%;
+}
+
+.toast.left.center,
+.toast.right.center {
+        top: 45%;
+        bottom: 45%;
+}
+
+.toast.success {
+        background-color: rgba(0, 255, 100, 0.7);
+        color: #000;
+}
+
+.toast.warning {
+        background-color: rgba(255, 150, 0, 0.7);
+        color: #000;
+}
+
+.toast.error {
+        background-color: rgba(255, 10, 0, 0.8);
+        color: #fff;
+}
+
+.toast>div {
+        margin: 0 auto;
+}

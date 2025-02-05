@@ -1,0 +1,44 @@
+.toast {
+    width: 20%;
+    height: 10%;
+    background-color: #ececed !important;
+    color: #000 !important;
+    border-radius: 0px;
+    padding: 0;
+    position: fixed;
+    z-index: 9999999999999;
+    box-shadow: inset -1px -1px 2px 1px #999585, inset 1px 1px 2px 0px #f7f7f6;
+}
+
+.toast>div {
+    position: relative;
+    padding: 40px 20px;
+    font-size: 0.8em;
+}
+
+.toast>div::before {
+    content: "";
+    display: inline-block;
+    width: auto;
+    height: 20px;
+    background-color: #0000aa;
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    top: 0;
+    background-image: linear-gradient(0deg, #00d5, #fff5);
+}
+
+.toast.success>div::before {
+    background-color: #0000aa;
+}
+
+.toast.warning>div::before {
+    background-color: #ffff00;
+    background-image: linear-gradient(0deg, #9905, #fff5);
+}
+
+.toast.error>div::before {
+    background-color: #e50000;
+    background-image: linear-gradient(0deg, #9005, #fff5);
+}
